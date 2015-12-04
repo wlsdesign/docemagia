@@ -1,0 +1,48 @@
+body#home{
+	background: #f2f2f2;
+}
+#header{
+	background: @bgHeader;
+	border-top: 4px solid @boderBgHeader;
+	box-shadow: 1px 2px 10px @boxBgHeader;
+	min-height: 90px;
+	padding: 20px;
+	.logo{
+		color: @logo;
+		font-family: @Bangers;
+		font-size: 48px;
+		letter-spacing: 3px;
+	}
+	.user{
+		margin-top: 5px;
+		.img-user{
+			.borderRadius(50%);
+			border: 1px solid @bordaImgUser;
+			height: 25px;
+			width: 25px;
+		}
+		.name-user{
+			color: @nomeUser;
+			display: inline-block;
+			font-family: @roboto;
+			font-size: 16px;
+			margin-left: 10px;
+		}
+		.logout{
+			background: url(../imagens/exit.png) left center no-repeat;
+			background-size: 24px;
+			color: @logout;
+			display: block;
+			font-family: @roboto;
+			font-size: 16px;
+			height: 22px;
+			line-height: 22px;
+			margin-top: 10px;
+			padding-left: 25px;
+			text-decoration: none;
+			&:hover{
+				opacity: 0.9;
+			}
+		}
+	}
+}

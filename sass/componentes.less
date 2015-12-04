@@ -1,0 +1,71 @@
+//Variáveis
+.borderRadius(@val) {
+    border-radius: @val;
+    -webkit-border-radius: @val;
+}
+
+.boxShadow(@x, @y, @blur, @cor) {
+    box-shadow: @x @y @blur @cor;
+    -webkit-box-shadow: @x @y @blur @cor;
+    -moz-box-shadow: @x @y @blur @cor;
+    -o-box-shadow: @x @y @blur @cor;
+}
+
+.gradiente(@tipo, @cor1, @cor2) {
+    background-image: linear-gradient(@tipo, @cor1, @cor2);
+    background-image: -webkit-linear-gradient(@tipo, @cor1, @cor2);
+    background-image: -moz-linear-gradient(@tipo, @cor1, @cor2);
+    background-image: -o-linear-gradient(@tipo, @cor1, @cor2);
+    background-image: -ms-linear-gradient(@tipo, @cor1, @cor2);
+}
+.transicao(@tipo, @tempo){
+	-webkit-transition: @tempo @tipo;
+	-moz-transition: @tempo @tipo;
+	-o-transition: @tempo @tipo;
+	transition: @tempo @tipo;
+}
+
+//Componentes
+.ativo{
+	border-bottom: 2px solid @corAtiva;
+}
+.container{
+	margin: 0 auto;
+	max-width: 940px;
+}
+.fl{
+	display: inline;
+	float: left;
+}
+.fr{
+	display: inline;
+	float: right;
+}
+.hide{
+	display: none;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  height: 100%;
+}
+
+//Cores
+@corPadrao: #d12587;
+@corSecundaria: #ad0e68;
+@corLink: #ffffff;
+@corAtiva: #EB93E7;
+@cor01: #F77CC2;
+@cor02: #ffffff;
+@cor03: #000000;
+@cor04: #333333;
+
+//font
+@roboto: 'Roboto', sans-serif;
+@fredericka: 'Fredericka the Great', cursive;
+@great: 'Great Vibes', cursive;

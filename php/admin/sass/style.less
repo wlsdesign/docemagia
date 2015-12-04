@@ -1,0 +1,91 @@
+@import "componentes.less";
+@import "header.less";
+@import "footer.less";
+
+.breadcrumb{
+	font-family: @roboto;
+	font-size: 14px;
+	font-weight: 400;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 20px;
+	.list-link{
+		.list-item{
+			float: left;
+			padding: 0 5px;
+			.link{
+				.transicao(all, 1s);
+				color: @colorLink;
+				font-family: @roboto;
+				font-size: 16px;
+				font-weight: 500;
+				text-decoration: none;
+				&:hover{
+					.transicao(all, 1s);
+					opacity: 0.8;
+				}
+			}
+		}
+		.divisor{
+			padding: 0 2px;
+		}
+		.link-ativo{
+			color: @linkAtivo;
+			font-family: @roboto;
+			font-size: 14px;
+			font-weight: 300;
+		}
+	}
+}
+
+
+#container{
+	padding: 0 20px;
+	.box-menu{
+		margin-right: 3%;
+		.borderRadius(4px);
+		background: @bgMenu;
+		border: 1px solid @borda;
+		width: 20%;
+		.list-item:first-child{
+			border-top: 0;
+		}
+		.list-item{
+			border-top: 1px solid @borda;
+			height: 40px;
+			line-height: 40px;
+			width: 100%;
+		}
+		a{
+			.transicao(all, 1s);
+			color: @linkMenu;
+			display: block;
+			font-family: @roboto;
+			font-size: 16px;
+			font-weight: 400;
+			text-decoration: none;
+			&:hover{
+				.transicao(all, 0.1s);
+				color: @linkMenuHover;
+			}
+		}
+	}
+
+	.content{
+		.borderRadius(4px);
+		background: @bgContent;
+		border: 1px solid @borda;
+		height: 400px;
+		width: (100% - 23%);
+		.titulo{
+			border-bottom: 1px solid @borda;
+			color: @tituloContent;
+			font-family: @roboto;
+			font-size: 20px;
+			font-weight: 500;
+			padding: 20px;
+		}
+
+
+	}
+}

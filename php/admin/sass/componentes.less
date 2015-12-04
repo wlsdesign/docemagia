@@ -1,0 +1,155 @@
+/***************************/
+/********** LOGIN **********/
+/***************************/
+body.login    {padding-top: 100px; background: url('../imagens/header.png') top left repeat-x #333333; }
+.login-box      { width: 550px; margin: 0px auto; margin-bottom: 30px; background: url('../imagens/bck_white_10.png'); border: 1px solid #666666; text-align: left; padding: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
+.login-border     { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+.login-style      { border: 2px solid #FFFFFF; background: url('../imagens/login.jpg') center center no-repeat; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+.login-header     { height: 71px; background: url('../imagens/login_header.png') left bottom no-repeat; padding: 0 15px 0px 15px; -moz-border-radius: 3px 3px 0px 0px; -webkit-border-radius: 3px 3px 0px 0px; border-radius: 3px 3px 0px 0px;}
+.login-header .logo   { width: auto; margin: 0px; padding-top: 0px; }
+.login-header .logo .title  {font-family: @sigmar;font-size: 28px;display: block; color: @tituloLogin; }
+.login-header .logo .text { color: #333333;font-family: @roboto;font-weight: 900; }
+.login-inside     { height: 195px; padding-top: 35px; border-bottom: 1px solid #bbbbbb; background: url('../imagens/gear.png') 325px bottom no-repeat; }
+.login-inside p     { text-align: center; padding-bottom: 10px; }
+.login-data     { width: 290px; padding: 30px 10px 25px 30px; background: url('../imagens/bck_white_50.png'); margin: 0px auto; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px; border-radius: 3px 3px 3px 3px; margin-bottom : 20px; }
+.login-data label   { display: block; width: 70px; float: left; line-height: 22px; text-align: right; margin-right: 10px;font-family: @roboto;font-weight: 300; }
+.login-data input.text{ width: 140px;height: 25px;font-size: 11px;padding-left: 5px;}
+.login-data .row    { padding-bottom: 10px; }
+.login-data .button   { margin-left: 80px; }
+.login-footer     { border-top: 1px solid #FFFFFF; background: url('../imagens/bck_black_70.png'); height: 22px; padding: 10px 15px 10px 15px; -moz-border-radius: 0px 0px 3px 3px; -webkit-border-radius: 0px 0px 3px 3px; border-radius: 0px 0px 3px 3px;}
+.login-footer .remember   { color: #FFFFFF; line-height: 22px; display: block; float: left; font-weight: bold; }
+.login-footer .remember label { margin-left: 3px; }
+.login-links      { color: #bbbbbb; font-size: 16px;text-align: center;}
+.login-links strong   { font-weight: normal; color: #FFFFFF; }
+.login-links a      { color: #FFFFFF; text-decoration: none; }
+.login-links a:hover    { color: #FFFFFF; text-decoration: underline; }
+
+
+
+
+//Variáveis
+.borderRadius(@val) {
+    border-radius: @val;
+    -webkit-border-radius: @val;
+}
+
+.boxShadow(@x, @y, @blur, @cor) {
+    box-shadow: @x @y @blur @cor;
+    -webkit-box-shadow: @x @y @blur @cor;
+    -moz-box-shadow: @x @y @blur @cor;
+    -o-box-shadow: @x @y @blur @cor;
+}
+
+.gradiente(@tipo, @cor1, @cor2) {
+    background-image: linear-gradient(@tipo, @cor1, @cor2);
+    background-image: -webkit-linear-gradient(@tipo, @cor1, @cor2);
+    background-image: -moz-linear-gradient(@tipo, @cor1, @cor2);
+    background-image: -o-linear-gradient(@tipo, @cor1, @cor2);
+    background-image: -ms-linear-gradient(@tipo, @cor1, @cor2);
+}
+.transicao(@tipo, @tempo){
+	-webkit-transition: @tempo @tipo;
+	-moz-transition: @tempo @tipo;
+	-o-transition: @tempo @tipo;
+	transition: @tempo @tipo;
+}
+
+//Componentes
+.off{
+  display: none;
+}
+.ativo{
+  border-left: 10px solid @menuAtivo;
+  a{
+    color: @menuAtivo !important;
+  }
+  .fl{
+    margin: 0 10px;
+  }
+}
+.fl{
+	display: inline;
+	float: left;
+}
+.fr{
+	display: inline;
+	float: right;
+}
+.hide{
+	display: none;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  height: 100%;
+}
+
+//Ícones do Menu
+.ico{
+  display: block;
+  height: 40px;
+  margin: 0 10px 0 20px;
+  opacity: 0.8;
+  width: 30px;
+}
+.ico-usuario{
+  &:extend(.ico);
+  background: url(../imagens/users.png) left center no-repeat;
+}
+.ico-fotos{
+  &:extend(.ico);
+  background: url(../imagens/picture.png) left center no-repeat;
+}
+.ico-videos{
+  &:extend(.ico);
+  background: url(../imagens/video.png) left center no-repeat;
+}
+.ico-depoimento{
+  &:extend(.ico);
+  background: url(../imagens/depoimentos.png) left center no-repeat;
+}
+.ico-sair{
+  &:extend(.ico);
+  background: url(../imagens/logout.png) left center no-repeat;
+}
+
+//Cores
+
+//login
+@tituloLogin: #ffffff;
+
+//header
+@bordaImgUser: #333333;
+@bgHeader: #E05252;
+@boderBgHeader: #B10909;
+@boxBgHeader: #B10909;
+@nomeUser: #ffffff;
+@logo: #ffffff;
+@logout: #ffffff;
+
+//Breadcrumb
+@linkAtivo: #999999;
+@colorLink: #e05252;
+
+//Menu
+@bordaMenu: #800000;
+@menuAtivo: #800000;
+@bgMenu: #e05252;
+@linkMenu: #ffffff;
+@linkMenuHover: #800000;
+
+//Conteúdo das páginas
+@borda: #800000;
+@bgContent: rgba(224, 82,82, 1);
+@tituloContent: #ffffff;
+
+
+//font
+@sigmar: 'Sigmar One', cursive;
+@roboto: 'Roboto Condensed', sans-serif;
+@Bangers: 'Bangers', cursive;

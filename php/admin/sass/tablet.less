@@ -1,0 +1,35 @@
+@media screen and (max-width: 940px) {
+	#Header{
+		.ativo{
+				border: 0;
+			}
+		.hide{
+			display: block;
+		}
+		.off{
+			display: none;
+		}
+		.menu{
+			background: rgba(0, 0, 0, 0.9);
+			border-left: 8px solid @corSecundaria;
+			padding: 50px 0;
+			position: absolute;
+			right: 0;
+			width: 320px;
+		}
+		.list-item{			
+			display: block;
+			float: none;
+			text-align: left;
+			text-transform: uppercase;
+			.submenu{
+				display: block;
+				margin-left: 20px;
+				text-transform: none;
+				.sub{
+					color: @corPadrao;
+				}	
+			}
+		}
+	}
+}

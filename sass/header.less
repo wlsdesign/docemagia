@@ -1,0 +1,122 @@
+#Header{
+	.menu-principal{
+		position: relative;
+		.gradiente(top, @corPadrao, @corSecundaria);
+		border-top: 2px solid #6d2354;
+		height: 40px;
+		line-height: 32px;
+		padding: 0 20px;
+		.logo{
+			color: @cor02;
+			font-family: @fredericka;
+			font-size: 25px;
+			strong{
+				font-family: @roboto;
+				font-size: 30px;
+				font-weight: 900;
+			}
+		}
+		.menu{
+			z-index: 1;
+		}
+		.menu-mob{
+			background: url(../img/icone-mob.png) no-repeat;
+			height: 30px;
+			width: 50px;
+			background-size: 50px;
+			position: absolute;
+			right: 0;
+			z-index: 2;
+		}
+		.fechar{
+			background: url(../img/icone-mob.png) no-repeat;
+			background-position: 0px -32px;
+			background-size: 50px;
+		}
+		.heart{
+			position: absolute;
+			left: 10px;
+			&:hover{
+				width: 40px;
+				height: 40px;
+			}
+		}
+	}
+	.list-item{
+		float: left;
+		margin-left: 20px;
+		position: relative;
+		a{
+			color: @corLink;
+			display: block;
+			font-family: @roboto;
+			font-size: 16px;
+			font-weight: 500;
+			&:hover{
+				border-bottom: 2px solid @corAtiva;
+				padding-bottom: 2px;
+			}
+		}
+		&:hover{
+			.submenu{
+				display: block;
+			}
+		}
+	}
+	.submenu{
+		background: rgba(173, 14, 104, 0.8);
+		display: none;
+		padding: 20px 0;
+		position: absolute;
+		right: -15px;
+		top: 36px;
+		width: 180px;
+		z-index: 10;
+		.sub{
+			padding-left: 10px;
+			border-top: 1px solid @corSecundaria;
+			&:first-child{
+				border: none;
+			}
+			&:hover{
+				background: @corSecundaria;
+				border: none;
+				color: @cor01;
+				padding-bottom: 0;
+			}
+		}
+	}
+	.slideshow{
+		height: 350px;
+		overflow: hidden;
+		img{
+			height: 100% !important;
+			max-width: 100% !important;
+		}
+	}
+	.header{
+		.box-logo{
+			background: url(../img/anjo02.png) left center no-repeat;
+			color: @cor02;
+			font-family: @fredericka;
+			margin-left: 30px;
+			padding-left: 50px;
+			position: absolute;
+			top: 72px;
+			z-index: 5;
+			strong{
+				font-family: @roboto;
+				font-size: 50px;
+				font-weight: 900;
+			}
+			.logo{
+				background: url(../img/anjo01.png) right center no-repeat;
+				font-size: 40px;
+				padding-right: 40px;
+			}
+		}
+		img{
+			max-width: 100%;
+		}
+	}
+}
