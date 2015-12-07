@@ -27,6 +27,7 @@ session_start();
 <title>Área Restrita - Adminstrador</title>
 
 	<link rel="stylesheet" href="../css/reset.css" type="text/css">
+	<link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
 	<link rel="stylesheet" href="../css/style.css" type="text/css">
 	
 	<link rel="shortcut icon" href="../imagens/cadeado.ico" type="image/x-icon" />
@@ -69,6 +70,7 @@ function excluir() {
 			<li class="list-item link-ativo">Usuários</li>
 		</ul>
 	</div>
+
 	<div id="container" class="clearfix">
 		<section class="box-menu fl">
 			<?php include "menu.php"; ?>
@@ -76,12 +78,35 @@ function excluir() {
 	
 		<section class="content fr">
 			<h1 class="titulo">Usuários</h1>
-		</section>
+			<div class="form">
+				<div class="box-form">
+					<fieldset>
+						<h3 class="titulo-form">Cadastro de Usuário</h3>
+						<div class="campo">
+							<label for="nome">Nome</label>
+							<input type="text" name="nome" class="nome">
+						</div>
 
+						<div class="campo">
+							<label for="login">Login</label>
+							<input type="text" name="login" class="login">
+						</div>
+
+						<div class="campo">
+							<label for="senha">Senha</label>
+							<input type="password" name="senha" class="senha">
+						</div>
+
+						<button type="submit" class="salvar">Salvar</button>
+					</fieldset>
+				</div>
+			</div>
+		</section>
 	</div>
 
 
 <script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
 <script type="text/javascript">
 	$("#menu .list-item").eq(0).addClass("ativo");
 </script>

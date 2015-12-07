@@ -41,7 +41,7 @@ body.login    {padding-top: 100px; background: url('../imagens/header.png') top 
 }
 
 .gradiente(@tipo, @cor1, @cor2) {
-    background-image: linear-gradient(@tipo, @cor1, @cor2);
+    background-image: linear-gradient(@tipo, @cor1, @cor2);l
     background-image: -webkit-linear-gradient(@tipo, @cor1, @cor2);
     background-image: -moz-linear-gradient(@tipo, @cor1, @cor2);
     background-image: -o-linear-gradient(@tipo, @cor1, @cor2);
@@ -118,6 +118,16 @@ body.login    {padding-top: 100px; background: url('../imagens/header.png') top 
   background: url(../imagens/logout.png) left center no-repeat;
 }
 
+//Formulários
+
+fieldset{
+    .borderRadius(4px);
+    background: @bgTextfield;
+    padding: 20px;
+    width: 100%;
+}
+
+
 //Cores
 
 //login
@@ -147,6 +157,9 @@ body.login    {padding-top: 100px; background: url('../imagens/header.png') top 
 @borda: #800000;
 @bgContent: rgba(224, 82,82, 1);
 @tituloContent: #ffffff;
+
+//Formulários
+@bgTextfield: #f2f2f2;
 
 
 //font
