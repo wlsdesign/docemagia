@@ -24,7 +24,9 @@ session_start();
 	<meta name="robots" content="">
 	<meta name="Author" content="">
 	<meta http-equiv="imagetoolbar" content="no">
-<title>Área Restrita - Adminstrador</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<title>Área Restrita - Adminstrador</title>
 
 	<link rel="stylesheet" href="../css/reset.css" type="text/css">
 	<link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
@@ -78,29 +80,38 @@ function excluir() {
 	
 		<section class="content fr">
 			<h1 class="titulo">Usuários</h1>
-			<div class="form">
-				<div class="box-form">
-					<fieldset>
-						<h3 class="titulo-form">Cadastro de Usuário</h3>
-						<div class="campo">
-							<label for="nome">Nome</label>
-							<input type="text" name="nome" class="nome">
-						</div>
+			<form action="" method="POST" id="form">
+				<div class="form">
+					<div class="box-form">
+						<fieldset>
+							<h3 class="titulo-form">Cadastro de Usuário</h3>
+							<div class="campo">
+								<label for="nome">Nome</label>
+								<input type="text" name="nome" class="nome" placeholder="Digite o nome">
+							</div>
 
-						<div class="campo">
-							<label for="login">Login</label>
-							<input type="text" name="login" class="login">
-						</div>
+							<div class="campo">
+								<label for="login">Login</label>
+								<input type="text" name="login" class="login" placeholder="Digite um login">
+							</div>
 
-						<div class="campo">
-							<label for="senha">Senha</label>
-							<input type="password" name="senha" class="senha">
-						</div>
+							<div class="campo">
+								<label for="senha">Senha</label>
+								<input type="password" name="senha" class="senha" placeholder="Digite a senha">
+							</div>
+							
+							<div class="campo">
+								<div class="inputFile">
+									<span>Selecione um arquivo</span>
+									<input type="file" name="arquivo" id="arquivo" />
+								</div>
+							</div>
 
-						<button type="submit" class="salvar">Salvar</button>
-					</fieldset>
+							<button type="submit" class="salvar fr">Salvar</button>
+						</fieldset>
+					</div>
 				</div>
-			</div>
+			</form>
 		</section>
 	</div>
 

@@ -58,6 +58,16 @@ body.login    {padding-top: 100px; background: url('../imagens/header.png') top 
 .off{
   display: none;
 }
+.btn{
+  .borderRadius(4px);
+  .transicao(all, 01s);
+  border: 0;
+  cursor: pointer;
+  font-family: @roboto;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 20px;
+}
 .ativo{
   border-left: 10px solid @menuAtivo;
   a{
@@ -125,6 +135,65 @@ fieldset{
     background: @bgTextfield;
     padding: 20px;
     width: 100%;
+    .titulo-form{
+      font-family: @roboto;
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    label{
+      display: block;
+      font-family: @roboto;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    input:focus{
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      box-shadow: 1px 1px 15px red;
+      -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+    input[type="text"],
+    input[type="password"]{
+      .borderRadius(4px);
+      background: @bgInput;
+      border: 1px solid @bordaCampos;
+      height: 40px;
+      padding: 10px;
+      width: 100%;
+    }
+    .salvar{
+       &:extend(.btn);
+       .transicao(all, 1s);
+       color: @corLink;
+       background: @bgBtn;
+       margin-top: 20px;
+       &:hover{
+        .transicao(all, 1s);
+        background: @corLinkHover;
+      }
+    }
+    .inputFile{ 
+      width: 185px;
+      height:40px;
+      position: relative;
+      overflow: hidden;
+      background: @bgInput;
+      span{
+        display: block;
+        position: absolute;
+      }
+      input{
+        position: absolute;
+        right: 0;
+        z-index: 2;
+        font-size: 100px;
+        opacity: 0;
+        filter: alpha(opacity=0);
+      }
+    }
 }
 
 
@@ -160,6 +229,11 @@ fieldset{
 
 //Formulários
 @bgTextfield: #f2f2f2;
+@bgInput: #ffffff;
+@bordaCampos: #800000;
+@corLink: #ffffff;
+@corLinkHover: #D43333;
+@bgBtn: #800000;
 
 
 //font
