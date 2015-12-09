@@ -136,6 +136,7 @@ fieldset{
     padding: 20px;
     width: 100%;
     .titulo-form{
+      color: @corTituloTextfield;
       font-family: @roboto;
       font-size: 18px;
       font-weight: 900;
@@ -175,25 +176,69 @@ fieldset{
         background: @corLinkHover;
       }
     }
-    .inputFile{ 
-      width: 185px;
-      height:40px;
-      position: relative;
-      overflow: hidden;
+    
+    .file-img {
+      .borderRadius(4px);
       background: @bgInput;
-      span{
-        display: block;
-        position: absolute;
+      border: 1px solid @bordaCampos;
+      height: 40px;
+      overflow: hidden;
+      position: relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 295px;
+      .texto {
+        display: inline-block;
+        font-family: @roboto;
+        font-size: 14px;
+        font-weight: 300;
+        height: 100%;
+        line-height: 40px;
+        overflow: hidden;
+        padding-left: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 254px;
       }
-      input{
+      .ipt-file{
+        visibility: hidden;
+      }
+      .btn-file {
+        background: url(../imagens/clips.png) center no-repeat;
+        border-left: 1px solid @bordaCampos;
+        cursor: pointer;
+        height: 40px;
         position: absolute;
         right: 0;
-        z-index: 2;
-        font-size: 100px;
-        opacity: 0;
-        filter: alpha(opacity=0);
+        width: 40px;
       }
     }
+    .box-select {
+      .borderRadius(4px);
+      background: url(../imagens/arow-select.png) no-repeat 98% 3px #ffffff;
+      background-size: 28px;
+      border: 1px solid @bordaCampos;
+      height: 34px;
+      overflow: hidden;
+      width: 295px;
+      select {
+        background: transparent;
+        width: 295px;
+        padding: 5px;
+        font-family: @roboto;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1;
+        border: 0;
+        border-radius: 0;
+        height: 34px;
+        -webkit-appearance: none;
+      }
+    }
+    ::-webkit-input-placeholder { color: #000; }
+    :-moz-placeholder { color: #000; }
+    ::-moz-placeholder { color: #000; }
+    :-ms-input-placeholder { color: #000; }
 }
 
 
@@ -229,6 +274,7 @@ fieldset{
 
 //Formulários
 @bgTextfield: #f2f2f2;
+@corTituloTextfield: #800000;
 @bgInput: #ffffff;
 @bordaCampos: #800000;
 @corLink: #ffffff;

@@ -58,10 +58,14 @@ function excluir() {
 		<h1 class="logo fl">Doce magia</h1>
 		<div class="user fr">
 			<img src="../imagens/user.png" alt="" class="img-user fl">
-			<span class="name-user"><?php $sql = mysql_query("SELECT * FROM users WHERE login = '".$_SESSION['login']."' ");
+			<span class="icon-menu-user"></span>
+			<ul class="menu-user off">
+				<li class="titulo-divisor"><span class="name-user"><?php $sql = mysql_query("SELECT * FROM users WHERE login = '".$_SESSION['login']."' ");
 			$resultado = mysql_fetch_array($sql);
-			$nome = $resultado['nome']; echo $nome; ?></span>
-			<a href="sair.php" class="logout" title="Logout">Sair</a>
+			$nome = $resultado['nome']; echo $nome; ?></span></li>
+				<li><a href="edit.php">Editar Perfil</a></li>
+				<li><a href="sair.php">Sair</a></li>
+			</ul>
 		</div>
 	</header>
 
@@ -101,11 +105,23 @@ function excluir() {
 							</div>
 							
 							<div class="campo">
-								<div class="inputFile">
-									<span>Selecione um arquivo</span>
-									<input type="file" name="arquivo" id="arquivo" />
+								<label for="img">Foto do perfil</label>
+								<div class="file-img">
+								    <span class="texto editing-field" editing-default-text="Nenhum arquivo anexado">Nenhum arquivo anexado</span>
+								    <input type="file" class="ipt-file editing-field" editing-default-value="" name="file" value=""> <span class="btn-file"></span>
 								</div>
 							</div>
+
+							<!-- <div class="campo">
+								<label for="img">Selecione o álbum</label>
+								<div class="box-select fl">
+								    <select name="tipo" class="tipo-trilho">
+								        <option value="0">Selecione um tipo</option>
+								        <option value="integras">Íntegras</option>
+								        <option value="live">Videos e Ao Vivo</option>
+								    </select>
+								</div>
+							</div> -->
 
 							<button type="submit" class="salvar fr">Salvar</button>
 						</fieldset>
