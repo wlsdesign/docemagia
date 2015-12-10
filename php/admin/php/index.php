@@ -29,7 +29,6 @@ session_start();
 	<title>Área Restrita - Adminstrador</title>
 
 	<link rel="stylesheet" href="../css/reset.css" type="text/css">
-	<link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
 	<link rel="stylesheet" href="../css/style.css" type="text/css">
 	
 	<link rel="shortcut icon" href="../imagens/cadeado.ico" type="image/x-icon" />
@@ -54,20 +53,7 @@ function excluir() {
 
 <body id="home">
 
-	<header id="header" class="clearfix">
-		<h1 class="logo fl">Doce magia</h1>
-		<div class="user fr">
-			<img src="../imagens/user.png" alt="" class="img-user fl">
-			<span class="icon-menu-user"></span>
-			<ul class="menu-user off">
-				<li class="titulo-divisor"><span class="name-user"><?php $sql = mysql_query("SELECT * FROM users WHERE login = '".$_SESSION['login']."' ");
-			$resultado = mysql_fetch_array($sql);
-			$nome = $resultado['nome']; echo $nome; ?></span></li>
-				<li><a href="edit.php">Editar Perfil</a></li>
-				<li><a href="sair.php">Sair</a></li>
-			</ul>
-		</div>
-	</header>
+	<?php include "header.php"; ?>
 
 	<div class="breadcrumb">
 		<ul class="list-link">
@@ -133,7 +119,7 @@ function excluir() {
 
 
 <script src="../js/jquery-2.1.4.min.js"></script>
-<script src="../js/jquery-ui.min.js"></script>
+<script src="../js/users.js"></script>
 <script type="text/javascript">
 	$("#menu .list-item").eq(0).addClass("ativo");
 </script>

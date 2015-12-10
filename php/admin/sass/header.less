@@ -6,7 +6,7 @@ body#home{
 	border-top: 4px solid @boderBgHeader;
 	box-shadow: 1px 2px 10px @boxBgHeader;
 	min-height: 50px;
-	padding: 10px;
+	padding: 10px 20px;
 	.logo{
 		color: @logo;
 		font-family: @Bangers;
@@ -14,19 +14,80 @@ body#home{
 		letter-spacing: 3px;
 	}
 	.user{
+		cursor: pointer;
 		margin-top: 5px;
+		position: relative;
+	    width: 45px;
+	    &:hover{
+	    	.menu-user{
+	    		display: block;
+	    	}
+	    }
 		.img-user{
 			.borderRadius(50%);
 			border: 1px solid @bordaImgUser;
 			height: 25px;
 			width: 25px;
 		}
+		.icon-menu-user{
+			background: url(../imagens/arow-down.png) center no-repeat;
+			display: block;
+			height: 15px;
+		    margin-top: 5px;
+			width: 15px
+		}
+		.menu-user{
+			display: none;
+			.borderRadius(4px);
+			border: 1px solid @bordaBoxUser;
+			right: 0;
+			position: absolute;
+			top: 25px;
+			min-width: 130px;
+			.list-menu-header:first-child{
+				border-top: 0;
+			}
+			.list-menu-header:last-child{
+				.borderRadiusBottom(4px);
+			}
+			.list-menu-header{
+				background: @bgBoxUser;
+				border-top: 1px solid @bordaBoxUser;
+				a{
+					color: @linkHeaderUser;
+					display: block;
+					font-family: @roboto;
+					font-size: 14px;
+					font-weight: 300;
+					padding: 10px 0 10px 30px;
+					text-decoration: none;
+					&:hover{
+						color: @nomeUser;
+					}
+				}
+				.edit{
+					background: url(../imagens/edit.png) 5px center no-repeat;
+					background-size: 16px;
+				}
+				.sair{
+					background: url(../imagens/exit.png) 5px center no-repeat;
+					background-size: 16px;
+				}
+			}
+			.titulo-divisor{
+				.borderRadiusTop(4px);
+				background: @bgNomeUser;
+				padding: 0;
+			}
+		}	
 		.name-user{
 			color: @nomeUser;
-			display: inline-block;
+			display: block;
 			font-family: @roboto;
 			font-size: 16px;
-			margin-left: 10px;
+			font-weight: 500;
+			padding: 5px 0;
+			text-align: center;
 		}
 		.logout{
 			background: url(../imagens/exit.png) left center no-repeat;
