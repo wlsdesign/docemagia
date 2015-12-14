@@ -46,6 +46,7 @@
 						</div>
 					</div>
 				</form>
+				<?php $senha = "carioca"; echo md5($senha); ?>
 			</div>
 		</div>
 	</div>

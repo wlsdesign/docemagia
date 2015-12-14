@@ -184,6 +184,7 @@ fieldset{
     .salvar{
        &:extend(.btn);
        .transicao(all, 1s);
+       clear: both;
        color: @corLink;
        background: @bgBtn;
        &:hover{
@@ -257,10 +258,141 @@ fieldset{
 }
 
 
+//Lista de Dados
+.lista-dados{
+  padding: 20px;
+  .tbl-dados{
+    border-collapse: collapse;
+    width: 100%;
+    th, td{
+      border: 1px solid @bordaTbl;
+      font-family: @roboto;
+      font-size: 16px
+    }
+    td{
+      font-weight: 300;
+    }
+    .col-action{
+      width: 10%;
+    }
+    .col-2{
+      width: 90%;
+    }
+    .col-2{
+      width: 45%;
+    }
+    .col-3{
+      width: 30%;
+    }
+    .tr-head{
+      background: @bgThead;
+      font-weight: 600;
+      th{
+        height: 30px;
+      }
+    }
+    .tr-body:nth-child(even){
+      background: @bgTrBody;
+    }
+    .tr-body{
+      background: @bgTrBodyImpar;
+      &:hover{
+        background: #999999;
+        color: #ffffff;
+      }
+      td{
+        height: 30px;
+        padding-left: 10px;
+        img:first-child{
+          margin-left: 10%;
+          margin-top: 5px;
+        }
+        img{
+          width: 20px;
+        }
+      }
+    }
+  }
+}
+
+
+//PopUp
+.popup{
+  background: rgba(0, 0, 0, 0.9);
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+  .box-conteudo{
+    .borderRadius(4px);
+    background: @bgBoxPopup;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -200px;
+    min-height: 200px;
+    min-width: 600px;
+    position: absolute;
+    top: 50%;
+  }
+  .close{
+    margin-top: 5px;
+    margin-right: 5px;
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+  .foto{
+    img{
+      margin-left: 20px;
+      width: 50px;
+    }
+  }
+}
+
+//Mensagens de alertas
+.alertas{
+  .borderRadius(4px);
+  display: none;
+  font-family: @roboto;
+  font-size: 19px;
+  font-weight: 600;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  .fechar{
+    margin: 3px;
+  }
+}
+.alert-success {
+  color: @corSuccess;
+  background-color: @bgSuccess;
+  border-color: @bordaSuccess;
+  }
+.alert-danger {
+  color: @corError;
+  background-color: @bgError;
+  border-color: @bordaError;
+}
+
+
 //Cores
 @cor01: #ffffff;
+
+//Alertas de Mensagens
+@corSuccess: #3c763d;
+@bgSuccess: #dff0d8;
+@bordaSuccess: #d6e9c6;
+@corError: #a94442;
+@bgError: #f2dede;
+@bordaError: #ebccd1;
+
+
 //login
 @tituloLogin: #ffffff;
+
 
 //header
 @bordaImgUser: #333333;
@@ -300,6 +432,14 @@ fieldset{
 @corLinkHover: #D43333;
 @bgBtn: #800000;
 
+//Lista Dados
+@bgThead: #f2f2f2;
+@bgTrBody: #f2f2f2;
+@bgTrBodyImpar: #c9c9c9;
+@bordaTbl: #800000;
+
+//PopUp
+@bgBoxPopup: #f2f2f2;
 
 //font
 @sigmar: 'Sigmar One', cursive;
