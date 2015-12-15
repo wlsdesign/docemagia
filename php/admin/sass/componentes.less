@@ -355,23 +355,28 @@ fieldset{
 //Mensagens de alertas
 .alertas{
   .borderRadius(4px);
+  bottom: 0;
   display: none;
   font-family: @roboto;
   font-size: 19px;
   font-weight: 600;
   height: 40px;
   line-height: 40px;
+  position: fixed;
   text-align: center;
+  width: 100%;
   .fechar{
     margin: 3px;
   }
 }
 .alert-success {
+  box-shadow: 5px 1px 29px darkgreen;
   color: @corSuccess;
   background-color: @bgSuccess;
   border-color: @bordaSuccess;
   }
 .alert-danger {
+  box-shadow: 5px 1px 29px darkred;
   color: @corError;
   background-color: @bgError;
   border-color: @bordaError;

@@ -39,20 +39,12 @@ session_start();
 	<link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-	
-	
-<script type="text/javascript">
-function excluir() {
-    if ( confirm("Tem certeza que deseja excluir esse usuário ?") ) {
-        return true;
-    }
-    return false;
-}
-</script>
 
 </head>
 
 <body id="home">
+<div class="loading"></div>
+<div class="alertas"></div>
 <div class="popup">
 	<div class="box-conteudo">
 		<a href="javascript:;" class="close fr"><img src="../imagens/close.png" alt="Fechar"></a>
@@ -83,12 +75,12 @@ function excluir() {
 						<h3 class="titulo-form">Alteração de Usuário</h3>
 						<div class="campo">
 							<label for="nome">Nome</label>
-							<input type="text" name="nome" class="nome" value="<?php echo $ln["nome"] ?>">
+							<input type="text" name="nome" class="nome" value="<?php echo $ln["nome"] ?>" autocomplete="off">
 						</div>
 
 						<div class="campo">
 							<label for="login">Login</label>
-							<input type="text" name="login" class="login" value="<?php echo $ln["login"] ?>">
+							<input type="text" name="login" class="login" value="<?php echo $ln["login"] ?>" autocomplete="off">
 						</div>
 						
 						<div class="campo">
@@ -129,16 +121,15 @@ function excluir() {
 				<div class="form">
 					<div class="box-form">
 						<fieldset>
-							<div class="alertas"></div>
 							<h3 class="titulo-form">Cadastro de Usuário</h3>
 							<div class="campo">
 								<label for="nome">Nome*</label>
-								<input type="text" name="nome" class="nome" placeholder="Digite o nome" required>
+								<input type="text" name="nome" class="nome" placeholder="Digite o nome" required autocomplete="off">
 							</div>
 
 							<div class="campo">
 								<label for="login">Login*</label>
-								<input type="text" name="login" class="login" placeholder="Digite um login" required>
+								<input type="text" name="login" class="login" placeholder="Digite um login" required autocomplete="off">
 							</div>
 
 							<div class="campo">
@@ -185,13 +176,13 @@ function excluir() {
 					<tbody>
 					<?php 
 						include('../../../inc/conexao.php');
-						$sql = mysql_query("SELECT * FROM users");
+						$sql = mysql_query("SELECT * FROM users ORDER BY nome ASC");
 						while($ln=mysql_fetch_array($sql)){
 					?>
 						<tr class="tr-body" data-id="<?php echo $ln["id"] ?>">
 							<td class="col-3"><?php echo $ln["nome"] ?></td>
 							<td class="col-3"><?php echo $ln["login"] ?></td>
-							<td class="col-3"><a href="index.php?idUser=<?php echo $ln["id"] ?>" class="editar"><img src="../imagens/editar.png" alt=""></a> <a href="excluir.php?excluir=<?php echo $ln["id"] ?>" class="excluir" onClick='excluir()'><img src="../imagens/trash.png" alt=""></a></td>
+							<td class="col-3"><a href="index.php?idUser=<?php echo $ln["id"] ?>" class="editar" title="Alterar"><img src="../imagens/editar.png" alt=""></a> <a href="javascript:;" class="excluir" title="Excluir"><img src="../imagens/trash.png" alt=""></a></td>
 						</tr>
 					<?php
 						}
