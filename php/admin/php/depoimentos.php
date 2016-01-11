@@ -27,7 +27,7 @@ session_start();
 	<meta http-equiv="imagetoolbar" content="no">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<title>Área Restrita - Adminstrador</title>
+	<title>Área Restrita - Depoimentos</title>
 
 	<link rel="stylesheet" href="../css/reset.css" type="text/css">
 	<link rel="stylesheet" href="../css/style.css" type="text/css">
@@ -39,7 +39,16 @@ session_start();
 	<link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-
+	
+	<script>
+		Seleciona = function( itemSelecionar, cod_id){
+		    var _select = document.getElementById(cod_id);
+		    
+		    for ( i =0; i < _select.length; i++){
+	        	_select[i].selected = _select[i].value == itemSelecionar ? true : false;
+		    }       
+		}
+	</script>
 </head>
 
 <body id="home">
@@ -62,32 +71,42 @@ session_start();
 			<?php
                 $idUser = $_GET['idUser'];
                 include('../../../inc/conexao.php');
-				$sql = mysql_query("SELECT * FROM users WHERE id = '$idUser'");
+				$sql = mysql_query("SELECT * FROM depoimentos WHERE id = '$idUser'");
 				while($ln=mysql_fetch_array($sql)){
 					$id = $idUser;
+					$libera = $ln['flag_libera'];
             
         ?>
-		<form action="altera-usuario.php?alterar=<?php echo $id ?>" method="POST" id="form" enctype="multipart/form-data">
+		<form action="altera-depoimento.php?alterar=<?php echo $id ?>" method="POST" id="form" enctype="multipart/form-data">
 			<input type="hidden" name="nome" id="nome" value="">
 			
 			<div class="form">
 				
 				<div class="box-form">
 					<fieldset>
-						<h3 class="titulo-form">Alteração de Usuário</h3>
+						<h3 class="titulo-form">Alteração de Depoimentos</h3>
 						<div class="campo">
 							<label for="nome">Nome</label>
 							<input type="text" name="nome" class="nome" value="<?php echo $ln["nome"] ?>" autocomplete="off">
 						</div>
 
 						<div class="campo">
-							<label for="login">Login</label>
-							<input type="text" name="login" class="login" value="<?php echo $ln["login"] ?>" autocomplete="off">
+							<label for="login">Depoimento</label>
+							<textarea class="depoimento" name="depoimento"><?php echo $ln["depoimento"] ?></textarea>
 						</div>
 
 						<div class="campo">
-							<label for="senha">Senha</label>
-							<input type="text" name="senha" class="senha" value="" autocomplete="off">
+							<label for="img">Selecione o álbum</label>
+							<div class="box-select">
+							    <select name="libera" class="libera" id="libera">
+							        <option value="0">Pendente</option>
+							        <option value="1">Liberado</option>
+							    </select>
+							    <script src="../js/jquery-2.1.4.min.js"></script>
+								<script language="javascript">
+									Seleciona('<?php echo $libera;?>', "libera");
+								</script> 
+							</div>
 						</div>
 						
 						<div class="campo">
@@ -96,7 +115,7 @@ session_start();
 							    <span class="texto editing-field" editing-default-text="Nenhum arquivo anexado">Nenhum arquivo anexado</span>
 							    <input type="file" class="ipt-file editing-field" editing-default-value="" name="file" value=""> <span class="btn-file"></span>
 							</div>
-							<div class="foto fl"><img src="../imagens/usuario/<?php echo $ln["foto"] ?>" alt=""></div>
+							<div class="foto fl"><img src="../imagens/usuario/<?php echo $ln["img_cliente"] ?>" alt=""></div>
 						</div>
 
 						<button type="submit" class="salvar fr">Salvar</button>
@@ -113,7 +132,7 @@ session_start();
 		<ul class="list-link">
 			<!-- <li class="list-item"><a href="" class="link">Link</a></li>
 			<li class="list-item divisor">/</li> -->
-			<li class="list-item link-ativo">Usuários</li>
+			<li class="list-item link-ativo">Depoimentos</li>
 		</ul>
 	</div>
 
@@ -123,12 +142,12 @@ session_start();
 		</section>
 	
 		<section class="content fr">
-			<h1 class="titulo">Usuários</h1>
-			<form action="cadastra_usuario.php" method="POST" id="addusuario" enctype="multipart/form-data">
+			<!-- <h1 class="titulo">Depoimentos</h1> -->
+			<!-- <form action="cadastra_depoimento.php" method="POST" id="adddepoimento" enctype="multipart/form-data">
 				<div class="form">
 					<div class="box-form">
 						<fieldset>
-							<h3 class="titulo-form">Cadastro de Usuário</h3>
+							<h3 class="titulo-form">Cadastro de Depoimento</h3>
 							<div class="campo">
 								<label for="nome">Nome*</label>
 								<input type="text" name="nome" class="nome" placeholder="Digite o nome" required autocomplete="off">
@@ -152,7 +171,7 @@ session_start();
 								</div>
 							</div>
 
-							<!-- <div class="campo">
+							<div class="campo">
 								<label for="img">Selecione o álbum</label>
 								<div class="box-select fl">
 								    <select name="tipo" class="tipo-trilho">
@@ -161,38 +180,38 @@ session_start();
 								        <option value="live">Videos e Ao Vivo</option>
 								    </select>
 								</div>
-							</div> -->
+							</div>
 
 							<button type="submit" class="salvar btn-salva fr">Salvar</button>
 						</fieldset>
 					</div>
 				</div>
-			</form>
+			</form> -->
 			
-			<h1 class="titulo">Lista dos usuários cadastrados</h1>
+			<h1 class="titulo">Lista dos depoimentos cadastrados</h1>
 		<!-- Lista Usuários -->
 			<div id="lista-dados" class="lista-dados">
 				<table id="tbl-dados" class="tbl-dados">
 					<thead>
 						<tr class="tr-head">
-							<th class="col-2">Nome</th>
-							<th class="col-2">Login</th>
+							<th class="col-3">Nome</th>
+							<th class="col-3">Depoimento</th>
+							<th class="col-3">Status</th>
 							<th class="col-action">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
 					<?php 
 						include('../../../inc/conexao.php');
-						$sql = mysql_query("SELECT * FROM users WHERE login != '".$_SESSION['login']."' ORDER BY nome ASC");
+						$sql = mysql_query("SELECT * FROM depoimentos ORDER BY flag_libera ASC");
 						while($ln=mysql_fetch_array($sql)){
 					?>
-						
 						<tr class="tr-body" data-id="<?php echo $ln["id"] ?>">
 							<td class="col-3"><?php echo $ln["nome"] ?></td>
-							<td class="col-3"><?php echo $ln["login"] ?></td>
-							<td class="col-3"><a href="index.php?idUser=<?php echo $ln["id"] ?>" class="editar" title="Alterar"><img src="../imagens/editar.png" alt=""></a> <a href="javascript:;" class="excluir" title="Excluir"><img src="../imagens/trash.png" alt=""></a></td>
+							<td class="col-3"><?php echo $ln["depoimento"] ?></td>
+							<td class="col-3"><?php if($ln["flag_libera"] == 0){ echo "Pendente";}else{ echo "Liberado";} ?></td>
+							<td class="col-3"><a href="depoimentos.php?idUser=<?php echo $ln["id"] ?>" class="editar" title="Alterar"><img src="../imagens/editar.png" alt=""></a> <a href="javascript:;" class="excluir" title="Excluir"><img src="../imagens/trash.png" alt=""></a></td>
 						</tr>
-						
 					<?php
 						}
 					 ?>
@@ -207,10 +226,9 @@ session_start();
 
 
 <script src="../js/jquery-2.1.4.min.js"></script>
-<script src="../js/users.js"></script>
+<script src="../js/depoimentos.js"></script>
 <script type="text/javascript">
-	$("#menu .list-item").eq(0).addClass("ativo");
+	$("#menu .list-item").eq(3).addClass("ativo");
 </script>
-
 </body>
 </html>

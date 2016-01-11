@@ -1,4 +1,5 @@
 (function(){
+
 	function fechaMensagem(){
 		$('.fechar').on('click', function(){
 			$(this).parent().fadeOut();
@@ -140,17 +141,27 @@ $('#addusuario').submit(function(){
 				
 				// Se enviado com sucesso
 				success: function( data ) {
-					volta_submit();
+					// var clona = 
+					// 	'<tr class="tr-body" data-id="<?php echo $ln["id"] ?>">'+
+					// 		'<td class="col-3"><?php echo $ln["nome"] ?></td>' +
+					// 		'<td class="col-3"><?php echo $ln["login"] ?></td>'+
+					// 		'<td class="col-3"><a href="index.php?idUser=<?php echo $ln["id"] ?>" class="editar" title="Alterar"><img src="../imagens/editar.png" alt=""></a>'+ 
+					// 		'<a href="javascript:;" class="excluir" title="Excluir"><img src="../imagens/trash.png" alt=""></a>'+
+					// 		'</td>'+
+					// 	'</tr>';
 					ipt_nome.val("");
 					ipt_login.val("");
 					ipt_senha.val("");
 					ipt_foto.val("");
 					msg.addClass("alert-success").html("Cadastro realizado com sucesso <a href='javascript:;' class='fechar fr'><img src='../imagens/close.png' alt='Fechar'></a>").fadeIn("fast");
 					setTimeout(function(){
-						msg.fadeOut("slow");
+						msg.fadeOut("slow");		
 				 	}, 3000);
 					
 					fechaMensagem();
+					setTimeout(function(){
+						window.location.reload();		
+				 	}, 3000);
 				},
 				// Se der algum problema
 				error: function (request, status, error) {
@@ -159,8 +170,6 @@ $('#addusuario').submit(function(){
 						msg.fadeOut("slow");
 					}, 3000);
 					fechaMensagem();
-					// Volta o botão de submit
-					volta_submit();
 					
 					// E alerta o erro
 					alert(request.responseText);
@@ -250,7 +259,7 @@ $('.excluir').on('click', function(){
 				success: function( data ) {	
 					volta_submit();
 					data_id.fadeOut().remove();
-					msg.addClass("alert-success").html("Cadastro realizado com sucesso <a href='javascript:;' class='fechar fr'><img src='../imagens/close.png' alt='Fechar'></a>").fadeIn("fast");
+					msg.addClass("alert-success").html("Usuário excluído com sucesso <a href='javascript:;' class='fechar fr'><img src='../imagens/close.png' alt='Fechar'></a>").fadeIn("fast");
 					setTimeout(function(){
 						msg.fadeOut("slow");
 					}, 3000);
@@ -258,7 +267,7 @@ $('.excluir').on('click', function(){
 				},
 				// Se der algum problema
 				error: function (request, status, error) {
-					msg.addClass("alert-error").html("Cadastro não realizado. Tente novamente. <a href='javascript:;' class='fechar fr'><img src='../imagens/close.png' alt='Fechar'></a>").fadeIn("fast");
+					msg.addClass("alert-error").html("usuário nao excluído. Tente novamente. <a href='javascript:;' class='fechar fr'><img src='../imagens/close.png' alt='Fechar'></a>").fadeIn("fast");
 					setTimeout(function(){
 						msg.fadeOut("slow");
 					}, 3000);
@@ -278,6 +287,120 @@ $('.excluir').on('click', function(){
 	// Anula o envio convencional
 	return false;
 });
+
+
+
+/* 
+	Alterar usuário
+ */
+var enviando_formulario = false;
+$('#form').submit(function(){
+	var msg = $('.alertas');
+	var obj_pai = $(this);
+	// Inputs
+	var ipt_nome = obj_pai.find('.nome');
+	var ipt_login = obj_pai.find('.login');
+	var ipt_foto = obj_pai.find('.ipt-file');
+
+	// O objeto do formulário
+		var obj = this;
+		
+		// O objeto jQuery do formulário
+		var form = $(obj);
+		
+		// O botão de submit
+		var submit_btn = $('#form :submit');
+		
+		// O valor do botão de submit
+		var submit_btn_text = submit_btn.val();
+ 
+		// Dados do formulário
+		var dados = new FormData(obj);
+		
+		// Retorna o botão de submit ao seu estado natural
+		function volta_submit() {
+			// Remove o atributo desabilitado
+			submit_btn.removeAttr('disabled');
+			
+			// Retorna o texto padrão do botão
+			submit_btn.val(submit_btn_text);
+			
+			// Retorna o valor original (não estamos mais enviando)
+			enviando_formulario = false;
+		}
+		
+		// Não envia o formulário se já tiver algum envio
+		if ( ! enviando_formulario  ) {		
+		
+			// Envia os dados com Ajax
+			$.ajax({
+				// Antes do envio
+				beforeSend: function() {
+					// Configura a variável enviando
+					enviando_formulario = true;
+					
+					// Adiciona o atributo desabilitado no botão
+					submit_btn.attr('disabled', true);
+					
+					// Modifica o texto do botão
+					submit_btn.val('Enviando...');
+					
+					// Remove o erro (se existir)
+					$('.error').remove();
+				}, 
+				
+				// Captura a URL de envio do form
+				url: form.attr('action'),
+				
+				// Captura o método de envio do form
+				type: form.attr('method'),
+				
+				// Os dados do form
+				data: dados,
+				
+				// Não processa os dados
+				processData: false,
+				
+				// Não faz cache
+				cache: false,
+				
+				// Não checa o tipo de conteúdo
+				contentType: false,
+				
+				// Se enviado com sucesso
+				success: function( data ) {
+					volta_submit();
+					obj_pai.parents('.popup').fadeOut('fast');
+					ipt_nome.val("");
+					ipt_login.val("");
+					ipt_foto.val("");
+					msg.addClass("alert-success").html("Alteração realizada com sucesso <a href='javascript:;' class='fechar fr'><img src='../imagens/close.png' alt='Fechar'></a>").fadeIn("fast");
+					setTimeout(function(){
+						msg.fadeOut("slow");
+				 	}, 3000);
+					
+					fechaMensagem();
+				},
+				// Se der algum problema
+				error: function (request, status, error) {
+					msg.addClass("alert-error").html("Alteração não realizada. Tente novamente. <a href='javascript:;' class='fechar fr'><img src='../imagens/close.png' alt='Fechar'></a>").fadeIn("fast");
+					setTimeout(function(){
+						msg.fadeOut("slow");
+					}, 3000);
+					fechaMensagem();
+					// Volta o botão de submit
+					volta_submit();
+					
+					// E alerta o erro
+					alert(request.responseText);
+				}
+			});
+		}
+
+	// Anula o envio convencional
+	return false;
+});
+
 
 
 	// $(document.body).on({
